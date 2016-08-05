@@ -120,9 +120,10 @@
   (loop [ loop-seq a-seq set-parity {}]
     (cond
       (empty? loop-seq)
-       (reduce  (fn [c x] (if (odd? (get set-parity x))
-                            (conj c x)
-                             c ))
+       (reduce  (fn [c x]
+                  (if (odd? (get set-parity x))
+                    (conj c x)
+                     c ))
         #{}
         (keys set-parity))
     :else (let [elt (first loop-seq)
